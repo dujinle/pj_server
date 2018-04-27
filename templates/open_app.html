@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>文档标题</title>
+	</head>
+	<body>
+		<p style="font-size: 68px;">
+			<a href="javascript:open_or_download_app();">打开APP</a>
+			<span id="device"></span>
+		</p>
+		<script type="text/javascript">
+			function open_or_download_app() {
+				var device = document.getElementById("device");
+				if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+					device.innerHTML = "ios设备";
+					// 判断useragent，当前设备为ios设备
+					var loadDateTime = new Date();
+					// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
+					window.setTimeout(function() {
+						var timeOutDateTime = new Date();
+						if (timeOutDateTime - loadDateTime <2200) {
+							window.location = "/hello";  // APP下载地址
+						} else {
+							window.close();
+						}
+					},2000);
+					window.location = "xinchang://enjoypuke?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";　　//ios端URL Schema
+				} else if (navigator.userAgent.match(/android/i)) {
+					device.innerHTML = "Android设备";
+					// 判断useragent，当前设备为Android设备
+					// 判断useragent，当前设备为ios设备
+					var loadDateTime = new Date();
+					// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
+					window.setTimeout(function() {
+						var timeOutDateTime = new Date();
+						if (timeOutDateTime - loadDateTime < 2200) {
+							window.location = "/hello";   // APP下载地址
+						} else {
+							window.close();
+						}
+					},2000);
+					window.location = "xinchang://enjoypuke?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";　　//android端URL Schema
+				}
+			}
+		</script>
+	</body>
+</html>
