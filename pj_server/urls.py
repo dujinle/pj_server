@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^hello$', view.hello),
 	url(r'^open_app$', view.open_app),
+	url(r'^index$', view.download),
 	url(r'^download_app$', view.download_app),
 ]

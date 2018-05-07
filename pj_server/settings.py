@@ -25,7 +25,7 @@ SECRET_KEY = 'fb63-8=im*0*%mrdxisfkfp$3!nlehb0m=6hjm8c0#j2j9k8nt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'TestModel',
+	'database',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +75,9 @@ WSGI_APPLICATION = 'pj_server.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pj_server_db',
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'paijiu_data',
 		'USER': 'root',
 		'PASSWORD':'root',
 		'HOST':'localhost',
@@ -123,3 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'templates/static')
+
+STATICFILES_DIRS = [
+	("css", os.path.join(STATIC_ROOT, 'css')),
+	("img", os.path.join(STATIC_ROOT, 'img')),
+	("js", os.path.join(STATIC_ROOT, 'js')),
+]
