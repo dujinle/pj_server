@@ -28,7 +28,7 @@ def open_app(request):
 def download_app(request):
 	tag = request.GET.get('tag');
 	if tag == 'android':
-		file=open('/home/ubuntu/pj_server/templates/static/download/test_app.apk','rb')
+		file=open('/home/ubuntu/pj_server/templates/static/download/enjoy_paijiu-debug.apk','rb')
 		response = FileResponse(file)
 		response['Content-Type']='application/octet-stream'
 		response['Content-Disposition']='attachment;filename="test_app.apk"'
