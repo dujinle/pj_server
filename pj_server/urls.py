@@ -21,6 +21,7 @@ urlpatterns = [
 	url(r'^hello$', view.hello),
 	url(r'^test$', view.test),
 	url(r'^open_app$', view.open_app),
-	url(r'^index$', view.download),
+	url(r'^open_app_dw$', view.open_app_dw),
+	url(r'^index$', view.open_app_dw),
 	url(r'^download_app$', view.download_app),
 ]

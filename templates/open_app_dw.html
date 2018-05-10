@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'css/open_dw_app.css' %}" />
+		<title>下载应用</title>
+		<script type="text/javascript">
+			function open_or_download_app(){
+				if("{{room_num}}" == 'None'){
+					return false;
+				}
+				if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+					// 判断useragent，当前设备为ios设备
+					window.location = "xinchang://enjoypuke?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";　　//ios端URL Schema
+				} else if (navigator.userAgent.match(/android/i)) {
+					// 判断useragent，当前设备为Android设备
+					window.location = "xinchang://enjoypuke?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";　　//android端URL Schema
+				}
+			}
+			function open_app(){
+				if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+					window.location = "xinchang://enjoypuke?scene=start_game";　　//ios端URL Schema
+				}else if(navigator.userAgent.match(/android/i)){
+					window.location = "xinchang://enjoypuke?scene=start_game";
+				}
+			}
+			function down_app(){
+				if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+					alert("目前不支持苹果版本，正在加紧制作中。");
+					//window.location = "";
+				}else if(navigator.userAgent.match(/android/i)){
+					window.location = "/download_app?tag=android"
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="open_or_download_app()">
+		<div align="center">
+			<div align="center"><img src="{% static 'img/cocos2d-x.png' %}" /></div>
+			<div class="item"></div>
+			<div align="center"><img onClick="open_app()" src="{% static 'img/open_app.png' %}" /></div>
+			<div class="item"></div>
+			<div align="center"><img onClick="down_app()" src="{% static 'img/download_app.png' %}" /></div>
+			<div align="center" class="footer">Powered by 鑫畅</div>
+		</div>
+	</body>
+</html>

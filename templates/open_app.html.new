@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'css/open_app_wx.css' %}" />
+		<title>打开应用</title>
+		<script type="text/javascript">
+			function which_device() {
+				var is_weixin = (function(){return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1})();
+				if(is_weixin){
+					return true;
+				}else{
+					if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+						if("{{room_num}}" == "None"){
+							window.location = "/open_app_dw";
+						}else{
+							window.location = "/open_app_dw?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";
+						}
+					}
+					if (navigator.userAgent.match(/android/i)) {
+						if("{{room_num}}" == "None"){
+							window.location = "/open_app_dw";
+						}else{
+							window.location = "/open_app_dw?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";
+						}
+					}
+				}
+				var loadDateTime = new Date();
+				// 设置时间阈值，在规定时间里面没有打开对应App的话，直接去App store进行下载。
+				window.setTimeout(function() {
+					var timeOutDateTime = new Date();
+					if (timeOutDateTime - loadDateTime <2200) {
+						if("{{room_num}}" == "None"){
+							window.location = "/open_app_dw";
+						}else{
+							window.location = "/open_app_dw?scene=enter_room&room_num={{room_num}}&&rid={{rid}}";
+						}
+					} else {
+						window.close();
+					}
+				},2000);
+			}
+		</script>
+	</head>
+
+	<body onload="which_device()">
+		<div id="bg">
+			<div align="center"><img src="{% static 'img/bg.png' %}" /></div>
+			<div align="center" class="STYLE1">还差最后一步就可以打开APP啦</div>
+			<div align="center" class="footer">Powered by 鑫畅</div>
+		</div>
+	</body>
+</html>

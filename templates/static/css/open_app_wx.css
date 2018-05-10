@@ -1,0 +1,32 @@
+/* CSS Document */
+body {
+	font: normal 100% Helvetica, Arial, sans-serif;
+}
+
+img { max-width: 100%;}
+
+.bg{
+	background:#FFFFFF;
+}
+
+.STYLE1 {
+	color: #999999;
+	font-weight: bold;
+	font-size:0.875em;
+}
+.stype2 {
+	color: #999999;
+	font-weight: bold;
+	font-size:0.5em;
+}
+
+.footer{
+	clear: both;
+	display: block;
+	text-align: center;
+	margin: 0px auto;
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	font-size:0.5em; font-weight: bold; padding:6px;
+}

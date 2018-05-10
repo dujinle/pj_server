@@ -1,0 +1,19 @@
+/* CSS Document */
+body {
+	font: normal 100% Helvetica, Arial, sans-serif;
+}
+
+img { max-width: 50%;}
+
+
+.item{
+	height:20px;
+}
+.footer{
+	text-align: center;
+	margin: 0px auto;
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	font-size:0.5em; font-weight: bold; padding:6px;
+}      
