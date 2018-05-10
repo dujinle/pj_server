@@ -1,0 +1,22 @@
+/* CSS Document */
+
+.popwin{
+	width:360px;
+	height:640px;
+	background:#343434;
+}
+.STYLE7 {
+	font-size: 24px;
+	color: #FFFFFF;
+}
+.item1{
+	height:28px;
+	vertical-align:middle; /* æ”÷–∂‘∆Î£¨ */ 
+	font-size:24px; 
+	
+}
+.center-in-center{
+	position: absolute;   
+	top: 197px;
+	left: 29px;
+}   

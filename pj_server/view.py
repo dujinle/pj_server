@@ -9,6 +9,9 @@ def hello(request):
 	context['hello'] = 'Hello World!'
 	return render(request, 'hello.html', context)
 
+def test(request):
+	return render(request, 'test.html')
+
 def download(request):
 	context = {}
 	context['hello'] = 'Hello World!'
