@@ -16,12 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from . import view
+from views import download_view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 	url(r'^hello$', view.hello),
 	url(r'^test$', view.test),
 	url(r'^open_app$', view.open_app),
+	url(r'^$', view.open_app),
 	url(r'^open_app_dw$', view.open_app_dw),
 	url(r'^index$', view.open_app_dw),
-	url(r'^download_app$', view.download_app),
+	url(r'^download_app$', download_view.download_app),
 ]
