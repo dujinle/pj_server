@@ -1,0 +1,121 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理</title>
+		<link href="{% static 'css/basic.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+		<!--[if IE]><script src="Scripts/html5.js"></script><![endif]-->
+	</head>
+
+	<body onload="get_player(1)">
+		<div class="container">
+			<header>
+				<div class="header_top">
+					<ul class="header_tip">
+						<li class="header_tipl"></li>
+						<li> <a href="#" class="header_tip_a htip_icon1">账号管理</a> </li>
+						<li> <a href="#" class="header_tip_a htip_icon2">系统帮助</a> </li>
+						<li> <a href="#" class="header_tip_a htip_icon3">注销</a> </li>
+						<li> <a href="#" class="header_tip_a htip_icon4">退出</a> </li>
+						<li class="header_tipr"></li>
+					</ul>
+					<div class="clear"></div>
+					<a href="#" class="logo"></a>
+					<nav>
+						<a id="player" onclick="get_player(1);" class="current">用户列表</a>
+						<a id="gonghui" onclick="get_gonghui(1)">公会列表</a>
+						<a id="gonghui_ans" onclick="get_gonghui_ans(1)">公会申请</a>
+						<a id="buyfangka" onclick="get_fangka_order(1)">购买房卡记录</a>
+						<a id="xufangka" onclick="get_xufangka(1)">续卡记录</a>
+						<a id="gonggao" onclick="get_gonggao(1)">系统公告</a>
+					</nav>
+				</div>
+				<div class="msg"> <span class="floatleft">欢迎您，{{username}}</span>
+			</header>
+
+			<div id="content" class="right"></div>
+		</div>
+		<div id="search_pop" class="none">
+			<form id="search_popf" action="" method="post">
+				<div class="clearfix mt10">
+					<label class="search_label">用户名称：</label>
+					<input type="text" class="search_text">
+				</div>
+			</form>
+		</div>
+	<script src="{% static 'js/jquery-1.9.1.min.js' %}"></script>
+	<script src="{% static 'js/common.js' %}"></script>
+	<script src="{% static 'js/qie_tab.js' %}"></script>
+	<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+	<script src="{% static 'js/jquery.validate.messages_cn.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'css/ui-dialog.css' %}">
+	<script src="{% static 'js/dialog-min.js' %}"></script>
+	<script>
+
+		//查询弹出框
+		function tip(){
+			var d = dialog({
+				title: '查询框',
+				content:document.getElementById("search_pop"),
+				okValue: '搜索',
+				ok: function () {
+					this.title('提交中…');
+					return false;
+				},
+				cancelValue: '取消',
+				cancel: function () {}
+			});
+			d.show();
+		}
+
+		//全选
+		function checkAll() {
+			var allCheckBoxs = document.getElementsByName("check");
+			var desc = document.getElementById("check_all").value;
+			if (desc == "全选") {
+				document.getElementById("check_all").value = "全不选";
+				for (var i = 0; i < allCheckBoxs.length; i++) {
+					allCheckBoxs[i].checked = true;
+				}
+			} else {
+				document.getElementById("check_all").value = "全选";
+				for (var i = 0; i < allCheckBoxs.length; i++) {
+					allCheckBoxs[i].checked = false;
+				}
+			}
+		}
+		//批量删除
+		function del() {
+			var checkFlag = false;
+			var allCheckBoxs = document.getElementsByName("check");
+			for (var i = 0; i < allCheckBoxs.length; i++) {
+				if (allCheckBoxs[i].checked == true) {
+					checkFlag = true;
+				}
+			}
+			if (!checkFlag) {
+				var dialog = art.dialog({
+					title: "批量删除",
+					content: "请先选择至少一条数据",
+					icon: "warning",
+					ok: true
+				});
+			} else {
+				//提示是否真的删除
+				art.dialog("确定要删除么？", 
+				function() {
+					var dialog = art.dialog({
+						title: "批量删除",
+						content: "删除成功！",
+						icon: "succeed",
+						ok: true
+					});
+				},
+				function() {});
+			}
+		}
+	</script>
+	</body>
+</html>

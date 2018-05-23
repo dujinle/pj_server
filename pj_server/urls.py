@@ -14,16 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from django.contrib import admin
 from . import view
 from views import download_view
+from views import admin_view
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-	url(r'^hello$', view.hello),
-	url(r'^test$', view.test),
-	url(r'^open_app$', view.open_app),
-	url(r'^$', view.open_app),
-	url(r'^open_app_dw$', view.open_app_dw),
-	url(r'^index$', view.open_app_dw),
+	url(r'^$', download_view.open_app),
+	url(r'^index$', download_view.open_app_dw),
+	url(r'^open_app$', download_view.open_app),
+	url(r'^open_app_dw$', download_view.open_app_dw),
 	url(r'^download_app$', download_view.download_app),
+	url(r'^admin$', admin_view.login),
+	url(r'^onlogin$', admin_view.onlogin),
+	url(r'^equipment$', admin_view.equipment),
+	url(r'^update_fangka$', admin_view.update_fangka),
+	url(r'^get_player$', admin_view.get_player_page),
+	url(r'^get_gonghui$', admin_view.get_gonghui_page),
+	url(r'^get_gonghui_ans$', admin_view.get_gonghui_ans_page),
+	url(r'^get_fangka_order$', admin_view.get_fangka_order_page),
+	url(r'^get_xufangka$', admin_view.get_xufangka_page),
+	url(r'^get_gonggao$', admin_view.get_gonggao_page),
+	url(r'^player$', admin_view.get_player)
 ]

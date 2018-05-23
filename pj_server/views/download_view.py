@@ -6,6 +6,27 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
 
+def open_app(request):
+	content = {};
+	room_num = request.GET.get('room_num');
+	rid = request.GET.get('rid');
+	name = request.GET.get('name');
+	content['room_num'] = room_num;
+	content['rid'] = rid;
+	content['name'] = name;
+	print content;
+	return render(request, 'open_app.html',content);
+
+def open_app_dw(request):
+	content = {};
+	room_num = request.GET.get('room_num');
+	rid = request.GET.get('rid');
+	name = request.GET.get('name');
+	content['room_num'] = room_num;
+	content['rid'] = rid;
+	content['name'] = name;
+	return render(request, 'open_app_dw.html',content);
+
 def download_app(request):
 	tag = request.GET.get('tag');
 	print tag
