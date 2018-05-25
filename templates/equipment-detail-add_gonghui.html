@@ -1,0 +1,26 @@
+<!doctype html>
+{% load staticfiles %}
+<div class="right_ctn">
+	<div class="detail_box">
+		<ul class="detail_top">
+			<li>基本信息</li>
+		</ul>
+		<div class="detail_ctn">
+			<div class="detail_ctne p20">
+				<div class="clearfix"> <span class="basic_l">公会申请ID：</span> <span id="gonghui_ans_id" class="basic_r">{{gonghui.gonghui_ans_id}}</span></div>
+				<div class="clearfix"> <span class="basic_l">公会ID：</span> <span id="gonghui_id" class="basic_r">{{gonghui.gonghui_id}}</span></div>
+				<div class="clearfix"> <span class="basic_l">公会名称：</span> <span class="basic_r">{{gonghui.gonghui_name}}</span></div>
+				<div class="clearfix"> <span class="basic_l">公会长ID：</span> <span class="basic_r">{{gonghui.player_id}}</span></div>
+				<div class="clearfix"> <span class="basic_l">公会长名称：</span> <span class="basic_r">{{gonghui.player_name}}</span></div>
+				<div class="clearfix"> <span class="basic_l">房卡数量：</span> <span id="fangka_num" class="basic_r">{{gonghui.fangka_num}}</span></div>
+				<div class="clearfix"> <span class="basic_l">人数：</span> <span class="basic_r">0</span></div>
+				<div class="clearfix"> <span class="basic_l">电话：</span> <span class="basic_r">{{gonghui.telphone}}</span></div>
+				<div class="clearfix"> <span class="basic_l">等级：</span> <span class="basic_r">{{gonghui.level}}</span></div>
+				<div class="clearfix"> <span class="basic_l">房卡单价：</span> <span class="basic_r">{{gonghui.danjia}}</span></div>
+				<div class="clearfix"> <span class="basic_l">公告：</span> <span class="basic_r">{{gonghui.gonggao}}</span></div>
+				<div class="clearfix"> <span class="basic_l">宣言：</span> <span class="basic_r">{{gonghui.xuanyan}}</span></div>
+			<div class="clearfix" align="center"><input type="button" value="提 交" class="login_btn" onclick="add_gonghui();"></div>
+			</div>
+		</div>
+	</div>
+</div>

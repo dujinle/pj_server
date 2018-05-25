@@ -22,6 +22,7 @@ q:before, blockquote:before, q:after, blockquote:after { content: ""; }
 /*关于颜色的定义*/
 .black { color: #111; }
 .white { color: #fff; }
+.blue { color: #191970; }
 .gray { color: #6d6d6d; }
 .red { color: #F00; }
 /*其他通用定义*/
@@ -49,7 +50,7 @@ q:before, blockquote:before, q:after, blockquote:after { content: ""; }
 /*header开始*/
 header { height: 96px; border-bottom: #fff 1px solid; }
 .header_top { height: 65px; border-bottom: #4684be 4px solid; background: url(../img/header_bg.gif) repeat-x; }
-.logo { float: left; display: inline; width: 198px; height: 18px; margin: 2px 20px 0; background: url(../img/logo.png) no-repeat; }
+.logo { float: left; display: inline; width: 198px; height: 18px; margin: 2px 20px 0; background: url(../img/logo_back.png) no-repeat; }
 /*header_tip*/
 .header_tip { float: right; margin-right: 10px; height: 22px; line-height: 22px; }
 .header_tip li { float: left; height: 22px; background: url(../img/header_tip_li_bg.gif) repeat-x; }

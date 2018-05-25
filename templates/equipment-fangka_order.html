@@ -1,6 +1,8 @@
 {% load staticfiles %}
 <div id="list" class="right_ctn">
-	<div class="operate"> <span class="search_btn" onClick="tip()">查 询</span> <span class="add_btn" onClick="add()">新 增</span> <span class="delete_btn" onClick="del()">批量删除</span> </div>
+	<div class="operate">
+		<span class="search_btn" onClick="tip('fangka_oeder')">查 询</span>
+	</div>
 	<table class="table_gray">
 		<colgroup>
 			<col style="width: 4%" />
@@ -32,7 +34,7 @@
 			{% for value in items %}
 			<tr>
 				<td class="align_ctr"><input type="checkbox" name="check"></td>
-				<td><a href="/fangka_order?id={{value.id}}" class="black">{{value.id}}</a></td>
+				<td>{{value.id}}</td>
 				<td>{{value.order_id}}</td>
 				<td>{{value.player_id}}</td>
 				<td>{{value.fangka_num}}</td>

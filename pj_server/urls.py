@@ -28,10 +28,15 @@ urlpatterns = [
 	url(r'^equipment$', admin_view.equipment),
 	url(r'^update_fangka$', admin_view.update_fangka),
 	url(r'^get_player$', admin_view.get_player_page),
+	url(r'^get_player_by_id$', admin_view.get_player_by_id),
 	url(r'^get_gonghui$', admin_view.get_gonghui_page),
+	url(r'^add_gonghui$', admin_view.add_gonghui),
 	url(r'^get_gonghui_ans$', admin_view.get_gonghui_ans_page),
+	url(r'^add_gonghui_ans$', admin_view.add_gonghui_ans),
+	url(r'^to_add_gonghui$', admin_view.to_add_gonghui),
 	url(r'^get_fangka_order$', admin_view.get_fangka_order_page),
 	url(r'^get_xufangka$', admin_view.get_xufangka_page),
 	url(r'^get_gonggao$', admin_view.get_gonggao_page),
-	url(r'^player$', admin_view.get_player)
+	url(r'^search_player_item$', admin_view.search_player_item),
+	url(r'^search_gonghui_item$', admin_view.search_gonghui_item)
 ]
