@@ -19,7 +19,7 @@ from views import download_view
 from views import admin_view
 urlpatterns = [
 	url(r'^$', download_view.open_app),
-	url(r'^index$', download_view.open_app_dw),
+	url(r'^index$', download_view.index),
 	url(r'^open_app$', download_view.open_app),
 	url(r'^open_app_dw$', download_view.open_app_dw),
 	url(r'^download_app$', download_view.download_app),

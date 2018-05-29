@@ -6,6 +6,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
 
+def index(request):
+	return render(request, 'index.html');
+
 def open_app(request):
 	content = {};
 	room_num = request.GET.get('room_num');
