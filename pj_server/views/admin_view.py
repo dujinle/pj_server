@@ -204,7 +204,7 @@ def add_gonghui(request):
 	gonghui_ans = models.gonghui_ans.objects.get(id=gonghui_ans_id)
 
 	gonghui = models.gonghui.objects.filter(gonghui_id=gonghui_id)
-	if gonghui is None:
+	if gonghui is None or len(gonghui) == 0:
 		gonghui = models.gonghui(gonghui_id=gonghui_id,
 			player_id=gonghui_ans.player_id,
 			player_name=gonghui_ans.player_name,
@@ -218,6 +218,8 @@ def add_gonghui(request):
 			xuanyan=""
 		)
 		gonghui.save();
+		gonghui_ans.status = 1;
+		gonghui_ans.save();
 		return HttpResponse(json.dumps({'code':200,'msg':'添加成功'}))
 	else:
 		return HttpResponse(json.dumps({'code':200,'msg':'已经添加完成'}))
