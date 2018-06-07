@@ -5,18 +5,6 @@ from django.db import models
 
 # Create your models here.
 
-class paijiu(models.Model):
-	id = models.IntegerField(primary_key=True,unique=True);
-	paixing = models.CharField(max_length=32);
-	score = models.IntegerField();
-	name = models.CharField(max_length=64);
-
-	class Meta:
-		db_table = 'paijiu' #自定义表名称为mytable
-		verbose_name = '牌九信息表' #指定在admin管理界面中显示的名称 
-		#app_label = 'app02'
-		ordering = ['id'] 
-
 class player(models.Model):
 	id = models.IntegerField(primary_key=True,unique=True);
 	player_id = models.CharField(max_length=32,verbose_name="微信ID");
@@ -117,3 +105,5 @@ class buy_fangka(models.Model):
 		db_table = "buy_fangka";
 		verbose_name = "购买房卡记录";
 		ordering = ["id"]
+
+#creat model
