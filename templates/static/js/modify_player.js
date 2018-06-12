@@ -11,7 +11,7 @@ function modify_fangka(user_id){
 	} else{
 		$.ajax({
 			type: "POST",
-			url: "get_player_by_id",
+			url: "admin/get_player_by_id",
 			data:{'id':user_id},
 			dataType: "json",
 			success: function(data){
@@ -43,7 +43,7 @@ function modify_fangka(user_id){
 						ok:function(){
 							$.ajax({
 								type: "POST",
-								url: "update_fangka",
+								url: "admin/update_fangka",
 								data:content,
 								dataType: "json",
 								success: function(data){

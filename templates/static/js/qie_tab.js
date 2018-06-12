@@ -20,7 +20,7 @@ function get_player(page){
 	set_current("player");
 	$.ajax({
 		type: "GET",
-		url: "get_player?page="+page,
+		url: "admin/get_player?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -32,7 +32,7 @@ function get_player(page){
 function get_player_by_id(id){
 	$.ajax({
 		type: "GET",
-		url: "get_player_by_id?id="+id,
+		url: "admin/get_player_by_id?id="+id,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -45,7 +45,7 @@ function get_gonghui(page){
 	set_current("gonghui");
 	$.ajax({
 		type: "GET",
-		url: "get_gonghui?page="+page,
+		url: "admin/get_gonghui?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -58,7 +58,7 @@ function get_gonghui_ans(page){
 	set_current("gonghui_ans");
 	$.ajax({
 		type: "GET",
-		url: "get_gonghui_ans?page="+page,
+		url: "admin/get_gonghui_ans?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -70,7 +70,7 @@ function get_gonghui_ans(page){
 function to_add_gonghui(id){
 	$.ajax({
 		type: "GET",
-		url: "to_add_gonghui?id="+id,
+		url: "admin/to_add_gonghui?id="+id,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -86,7 +86,7 @@ function add_gonghui(){
 	content["fangka_num"] = document.getElementById("fangka_num").innerHTML;
 	$.ajax({
 		type: "POST",
-		url: "add_gonghui",
+		url: "admin/add_gonghui",
 		data:content,
 		dataType:"json",
 		success: function(data){
@@ -100,7 +100,7 @@ function get_fangka_order(page){
 	set_current("buyfangka");
 	$.ajax({
 		type: "GET",
-		url: "get_fangka_order?page="+page,
+		url: "admin/get_fangka_order?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -113,7 +113,7 @@ function get_gonggao(page){
 	set_current("gonggao");
 	$.ajax({
 		type: "GET",
-		url: "get_gonggao?page="+page,
+		url: "admin/get_gonggao?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -126,7 +126,7 @@ function get_xufangka(page){
 	set_current("xufangka");
 	$.ajax({
 		type: "GET",
-		url: "get_xufangka?page="+page,
+		url: "admin/get_xufangka?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;
@@ -139,15 +139,15 @@ function get_item(type){
 	var param = document.getElementById("text_id").value;
 	var url = null;
 	if(type == 'player'){
-		url = 'search_player_item?param=' + param
+		url = 'admin/search_player_item?param=' + param
 	}else if(type == 'gonghui'){
-		url = 'search_gonghui_item?param=' + param
+		url = 'admin/search_gonghui_item?param=' + param
 	}else if(type == 'gonghui_ans'){
-		url = 'search_gonghui_ans_item?param=' + param
+		url = 'admin/search_gonghui_ans_item?param=' + param
 	}else if(type == 'fangka_order'){
-		url = 'search_fangka_order_item?param=' + param
+		url = 'admin/search_fangka_order_item?param=' + param
 	}else if(type == 'xufangka'){
-		url = 'search_xufangka_item?param=' + param
+		url = 'admin/search_xufangka_item?param=' + param
 	}
 	$.ajax({
 		type: "GET",
@@ -173,7 +173,7 @@ function add_item(type,cb){
 		param["money"] = item;
 		param["level"] = objs.selectedIndex;
 		param["creat_time"] = Date.now();
-		url = "add_gonghui_ans";
+		url = "admin/add_gonghui_ans";
 	}
 	$.ajax({
 		type: "POST",

@@ -9,13 +9,10 @@ function login(){
 	} else{
 		$.ajax({
 			type: "POST",
-			url: "onlogin",
+			url: "admin/onlogin",
 			data:{'username':username.value,'password':pass.value},
 			dataType: "json",
 			success: function(data){
-				if(data.code == 200){
-					window.location = "/equipment"
-				}
 				console.log(data);
 			}
 		});

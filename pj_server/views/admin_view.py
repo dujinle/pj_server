@@ -23,14 +23,14 @@ def onlogin(request):
 	print user
 	if user is not None and user.is_active:
 		auth.login(request, user)
-		return HttpResponse(json.dumps({'code':200,'msg':'登录成功'}))
+		return HttpResponseRedirect("admin/equipment")
 	else:
 		return HttpResponse(json.dumps({'code':201,'msg':'密码不正确'}))
 
 @login_required
 def login_out(request):
 	auth.logout(request)
-	return HttpResponseRedirect("admin")
+	return HttpResponseRedirect("/admin")
 
 @login_required
 def equipment(request):
