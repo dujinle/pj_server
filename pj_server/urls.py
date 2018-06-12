@@ -25,6 +25,7 @@ urlpatterns = [
 	url(r'^download_app$', download_view.download_app),
 	url(r'^admin$', admin_view.login),
 	url(r'^onlogin$', admin_view.onlogin),
+	url(r'^login_out$', admin_view.login_out),
 	url(r'^equipment$', admin_view.equipment),
 	url(r'^update_fangka$', admin_view.update_fangka),
 	url(r'^get_player$', admin_view.get_player_page),

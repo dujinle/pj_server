@@ -28,6 +28,11 @@ def onlogin(request):
 		return HttpResponse(json.dumps({'code':201,'msg':'密码不正确'}))
 
 @login_required
+def login_out(request):
+	auth.logout(request)
+	return HttpResponseRedirect("admin")
+
+@login_required
 def equipment(request):
 	user = request.user;
 	return render(request,'equipment.html',{'username':user})
@@ -220,6 +225,9 @@ def add_gonghui(request):
 		gonghui.save();
 		gonghui_ans.status = 1;
 		gonghui_ans.save();
+		player = models.player.objects.get(id=gonghui_ans.player_id)
+		player.gonghui_id = gonghui_id
+		player.save();
 		return HttpResponse(json.dumps({'code':200,'msg':'添加成功'}))
 	else:
 		return HttpResponse(json.dumps({'code':200,'msg':'已经添加完成'}))
