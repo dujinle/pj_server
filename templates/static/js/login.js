@@ -2,6 +2,7 @@
 function login(){
 	var username = document.getElementById("username");
 	var pass = document.getElementById("password");
+	var error = document.getElementById("error_tip");
 	if (username.value == ""){
 		alert("请输入用户名");
 	} else if (pass.value  == ""){
@@ -14,6 +15,11 @@ function login(){
 			dataType: "json",
 			success: function(data){
 				console.log(data);
+				if(data.code != 200){
+					error.innerHTML = data.msg;
+				}else{
+					window.location = "/admin/equipment"
+				}
 			}
 		});
 	}

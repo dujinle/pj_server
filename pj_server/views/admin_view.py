@@ -11,6 +11,7 @@ from django.template import RequestContext
 from database import models
 from django.views.decorators.csrf import csrf_exempt
 
+from django.core.urlresolvers import reverse
 
 def login(request):
 	return render(request,'login.html')
@@ -20,10 +21,10 @@ def onlogin(request):
 	username = request.POST['username'];
 	password = request.POST['password'];
 	user = auth.authenticate(username=username, password=password)
-	print user
+	print username,user
 	if user is not None and user.is_active:
 		auth.login(request, user)
-		return HttpResponseRedirect("admin/equipment")
+		return HttpResponse(json.dumps({'code':200,'msg':'正确'}))
 	else:
 		return HttpResponse(json.dumps({'code':201,'msg':'密码不正确'}))
 
@@ -32,9 +33,11 @@ def login_out(request):
 	auth.logout(request)
 	return HttpResponseRedirect("/admin")
 
+@csrf_exempt
 @login_required
 def equipment(request):
 	user = request.user;
+	print 'equipment',user
 	return render(request,'equipment.html',{'username':user})
 
 @csrf_exempt

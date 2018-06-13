@@ -17,6 +17,7 @@
 
     <form method="post">
 		{% csrf_token %}
+        <p><label id="error_tip" ></label></p>
         <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field" /></p>
         <p><label class="label_input">密码</label><input type="password" id="password" class="text_field"/></p>
 
