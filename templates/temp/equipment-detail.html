@@ -1,0 +1,69 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<meta charset="utf-8">
+<title>电梯系统</title>
+<link href="{% static 'css/basic.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+<!--[if IE]><script src="Scripts/html5.js"></script><![endif]-->
+</head>
+
+<body>
+<div class="container">
+  <header>
+    <div class="header_top">
+      <ul class="header_tip">
+        <li class="header_tipl"></li>
+        <li> <a href="#" class="header_tip_a htip_icon1">账号管理</a> </li>
+        <li> <a href="#" class="header_tip_a htip_icon2">系统帮助</a> </li>
+        <li> <a href="#" class="header_tip_a htip_icon3">注销</a> </li>
+        <li> <a href="#" class="header_tip_a htip_icon4">退出</a> </li>
+        <li class="header_tipr"></li>
+      </ul>
+      <div class="clear"></div>
+      <a href="#" class="logo"></a>
+      <nav> <a href="#">首 页</a> <a href="#" class="current">用户管理</a> <a href="#">公会管理</a> <a href="#">统计分析</a> <a href="#">广告发布</a> <a href="#">系统公告</a></nav>
+    </div>
+    <div class="msg"> <span class="floatleft">欢迎您，{{username}}</span>
+
+    </div>
+  </header>
+  <div class="right">
+    <div class="right_ctn">
+      <div class="detail_box">
+        <ul class="detail_top">
+          <li>基本信息</li>
+        </ul>
+        <div class="detail_ctn">
+          <div class="detail_ctne p20">
+            <div class="clearfix"> <span class="basic_l">用户ID：</span> <span class="basic_r">{{user.id}}</span></div>
+            <div class="clearfix"> <span class="basic_l">用户名称：</span> <span class="basic_r">{{user.nick_name}}</span></div>
+            <div class="clearfix"> <span class="basic_l">微信ID：</span> <span class="basic_r">{{user.player_id}}</span></div>
+            <div class="clearfix"> <span class="basic_l">微信头像：</span> <span class="basic_r">{{user.head_img_url}}</span></div>
+            <div class="clearfix"> <span class="basic_l">性别：</span> <span class="basic_r">{{user.sex}}</span></div>
+            <div class="clearfix"> <span class="basic_l">房卡数量：</span> <input id="fangka_num" class="basic_r" value={{user.fangka_num}}></div>
+            <div class="clearfix"> <span class="basic_l">电话：</span> <span class="basic_r">{{user.phone_num}}</span></div>
+            <div class="clearfix"> <span class="basic_l">游戏场数：</span> <span class="basic_r">{{user.round_num}}</span></div>
+            <div class="clearfix"> <span class="basic_l">游戏总分数：</span> <span class="basic_r">{{user.all_score}}</span></div>
+            <div class="clearfix"> <span class="basic_l">游戏胜利数：</span> <span class="basic_r">{{user.win_num}}</span></div>
+            <div class="clearfix"> <span class="basic_l">游戏失败数：</span> <span class="basic_r">{{user.lose_num}}</span></div>
+            <div class="clearfix"> <span class="basic_l">购买房卡总数：</span> <span class="basic_r">{{user.fangka_history}}</span></div>
+            <div class="clearfix"> <span class="basic_l">无效的房卡数：</span> <span class="basic_r">{{user.invalid_fangka}}</span></div>
+            <div class="clearfix"> <span class="basic_l">公会ID：</span> <span class="basic_r">{{user.gonghui_id}}</span></div>
+            <div class="clearfix"> <span class="basic_l">登录次数：</span> <span class="basic_r">{{user.loginCount}}</span></div>
+            <div class="clearfix"> <span class="basic_l">创建时间：</span> <span class="basic_r">{{user.createTime}}</span></div>
+            <div class="clearfix"> <span class="basic_l">连续登录天数：</span> <span class="basic_r">{{user.continueLoginDays}}</span></div>
+            <div class="clearfix"> <span class="basic_l">上次登录时间：</span> <span class="basic_r">{{user.lastLoginTime}}</span></div>
+			<div class="clearfix" align="center"><input type="button" value="提 交" class="login_btn" onclick="modify_fangka({{user.id}});"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script> 
+<script src="{% static 'js/common.js' %}"></script>
+<script src="{% static 'js/modify_player.js' %}"></script>
+</body>
+</html>

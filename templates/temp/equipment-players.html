@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<div id="list" class="right_ctn">
+	<div class="operate">
+		<span class="search_btn" onClick="tip('player')">查 询</span>
+	</div>
+	<table class="table_gray">
+		<colgroup>
+			<col style="width: 4%" />
+			<col style="width: 10%" />
+			<col style="width: 15%" />
+			<col style="width: 16%" />
+			<col style="width: 17%" />
+			<col style="width: 20%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="align_ctr"><input type="checkbox" class="check_all" id="check_all" value="全选" onClick="checkAll()"></th>
+				<th>用户ID</th>
+				<th>用户名称</th>
+				<th>房卡数量</th>
+				<th>购买房卡数量</th>
+				<th>性别</th>
+				<th>创建时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for value in users %}
+			<tr>
+				<td class="align_ctr"><input type="checkbox" name="check"></td>
+				<td><a onclick="get_player_by_id({{value.id}});" class="black">{{value.id}}</a></td>
+				<td>{{value.nick_name}}</td>
+				<td>{{value.fangka_num}}</td>
+				<td>{{value.fangka_history}}</td>
+				<td>{{value.sex}}</td>
+				<td>{{value.createTime}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="page">
+		<span class="floatleft pt2">共有<strong>&nbsp;{{length}}&nbsp;</strong>条数据，当前第<strong>&nbsp;{{cur_page}}&nbsp;</strong>页</span>
+		<div class="pageblue">
+			{% if cur_page == 1 %}
+				<span class="disabled">首页</span>
+				<span class="disabled">上一页</span>
+			{% else %}
+				<span class="border_none" onclick="get_player(1);">首页</span>
+				<span class="border_none" onclick="get_player({{cur_page}} - 1);">上一页</span>
+			{% endif %}
+			{% if cur_page == -1 %}
+				<span class="disabled">下一页</span>
+					<span class="disabled">尾页</span>
+			{% else %}
+				<span onclick="get_player({{cur_page}} + 1);"  class="border_none">下一页</span>
+				<span onclick="get_player(-1);" class="border_none">尾页</span>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<div id="search_pop" class="none">
+	<form id="search_popf" action="" method="post">
+		<div class="clearfix mt10">
+			<label class="search_label">用户名称：</label>
+			<input id="text_id" type="text" class="search_text">
+		</div>
+	</form>
+</div>

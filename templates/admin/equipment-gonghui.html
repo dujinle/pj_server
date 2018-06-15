@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<div id="list" class="right_ctn">
+	<div class="operate">
+		<span class="search_btn" onClick="tip('gonghui')">查 询</span>
+		<span class="delete_btn" onClick="del('gonghui')">批量删除</span>
+	</div>
+	<table class="table_gray">
+		<colgroup>
+			<col style="width: 4%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 18%" />
+			<col style="width: 18%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="align_ctr"><input type="checkbox" class="check_all" id="check_all" value="全选" onClick="checkAll()"></th>
+				<th>ID</th>
+				<th>公会ID</th>
+				<th>公会长</th>
+				<th>人数</th>
+				<th>等级</th>
+				<th>房卡数量</th>
+				<th>单价</th>
+				<th>公会名称</th>
+				<th>公会公告</th>
+				<th>公会宣言</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for value in items %}
+			<tr>
+				<td class="align_ctr"><input type="checkbox" name="check" id="{{value.id}}" /></td>
+				<td>{{value.id}}</td>
+				<td>{{value.gonghui_id}}</td>
+				<td>{{value.player_name}}</td>
+				<td>{{value.renshu}}</td>
+				<td>{{value.level}}</td>
+				<td>{{value.fangka_num}}</td>
+				<td>{{value.danjia}}</td>
+				<td>{{value.gonghui_name}}</td>
+				<td>{{value.gonggao}}</td>
+				<td>{{value.xuanyan}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="page">
+		<span class="floatleft pt2">共有<strong>&nbsp;{{length}}&nbsp;</strong>条数据，当前第<strong>&nbsp;{{cur_page}}&nbsp;</strong>页</span>
+		<div class="pageblue">
+			{% if cur_page == 1 %}
+				<span class="disabled">首页</span>
+				<span class="disabled">上一页</span>
+			{% else %}
+				<span class="border_none" onclick="get_gonghui(1);">首页</span>
+				<span class="border_none" onclick="get_gonghui({{cur_page}} - 1);">上一页</span>
+			{% endif %}
+			{% if cur_page == -1 %}
+				<span class="disabled">下一页</span>
+					<span class="disabled">尾页</span>
+			{% else %}
+				<span onclick="get_gonghui({{cur_page}} + 1);"  class="border_none">下一页</span>
+				<span onclick="get_gonghui(-1);" class="border_none">尾页</span>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<div id="search_pop" class="none">
+	<form id="search_popf" action="" method="post">
+		<div class="clearfix mt10">
+			<label class="search_label">公会ID：</label>
+			<input id="text_id" type="text" class="search_text">
+		</div>
+	</form>
+</div>

@@ -1,0 +1,119 @@
+{% load staticfiles %}
+<div id="list" class="right_ctn">
+	<div class="operate">
+		<span class="search_btn" onClick="tip('gonghui_ans')">查 询</span>
+		<span class="add_btn" onClick="add('gonghui_ans')">新 增</span>
+		<span class="delete_btn" onClick="del('gonghui_ans')">批量删除</span>
+	</div>
+	<table class="table_gray">
+		<colgroup>
+			<col style="width: 4%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+			<col style="width: 8%" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th class="align_ctr"><input type="checkbox" class="check_all" id="check_all" value="全选" onClick="checkAll()"></th>
+				<th>ID</th>
+				<th>玩家名称</th>
+				<th>电话</th>
+				<th>等级</th>
+				<th>金额</th>
+				<th>申请时间</th>
+				<th>状态</th>
+			</tr>
+		</thead>
+		<tbody>
+			<script src="{% static 'js/qie_tab.js' %}"></script>
+			{% for value in items %}
+			<tr>
+				<td class="align_ctr"><input type="checkbox" name="check" id="{{value.id}}"></td>
+				<td>{{value.id}}</td>
+				<td>{{value.player_name}}</td>
+				<td>{{value.telphone}}</td>
+				<td>{{value.level}}</td>
+				<td>{{value.money}}</td>
+				<td>{{value.creat_time}}</td>
+				{% if value.status == 1 %}
+					<td>完成</td>
+				{% else %}
+					<td><a onclick="to_add_gonghui('{{value.id}}');" class="blue">未完成</a></td>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<div class="page">
+		<span class="floatleft pt2">共有<strong>&nbsp;{{length}}&nbsp;</strong>条数据，当前第<strong>&nbsp;{{cur_page}}&nbsp;</strong>页</span>
+		<div class="pageblue">
+			{% if cur_page == 1 %}
+				<span class="disabled">首页</span>
+				<span class="disabled">上一页</span>
+			{% else %}
+				<span class="border_none" onclick="get_gonghui_ans(1);">首页</span>
+				<span class="border_none" onclick="get_gonghui_ans({{cur_page}} - 1);">上一页</span>
+			{% endif %}
+			{% if cur_page == -1 %}
+				<span class="disabled">下一页</span>
+					<span class="disabled">尾页</span>
+			{% else %}
+				<span onclick="get_gonghui_ans({{cur_page}} + 1);"  class="border_none">下一页</span>
+				<span onclick="get_gonghui_ans(-1);" class="border_none">尾页</span>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<div id="search_pop" class="none">
+	<form id="search_popf" action="" method="post">
+		<div class="clearfix mt10">
+			<label class="search_label">玩家名称：</label>
+			<input id="text_id" type="text" class="search_text">
+		</div>
+	</form>
+</div>
+<div id="add_pop" class="none">
+	<form id="add_popf" action="" method="post">
+		{% csrf_token %}
+		<div class="clearfix mt10">
+			<div class="pop_w1">
+				<label class="search_label"><span class="red">*</span>用户ID：</label>
+				<input id="player_id" type="text" class="search_text required">
+			</div>
+			<div class="pop_w1 ml10">
+				<label class="search_label"><span class="red">*</span>用户名称：</label>
+				<input id="player_name" type="text" class="search_text required">
+			</div>
+		</div>
+		<div class="clearfix mt10">
+			<div class="pop_w1">
+				<label class="search_label"><span class="red">*</span>电话：</label>
+				<input id="telphone" type="text" class="search_text required">
+			</div>
+			<div class="pop_w1 ml10">
+				<label class="search_label"><span class="red">*</span>公会名称：</label>
+				<input id="gonghui_name" type="text" class="search_text required">
+			</div>
+		</div>
+		<div class="clearfix mt10">
+			<div class="pop_w1">
+				<label class="search_label"><span class="red">*</span>等 级：</label>
+				<select id="select" class="search_sel" onchange="select_level();">
+					<option value="0">请选择</option>
+					<option value="1000">1级</option>
+					<option value="2000">2级</option>
+					<option value="3000">3级</option>
+				</select>
+			</div>
+			<div class="pop_w1 ml10">
+				<label class="search_label"><span class="red">*</span>金额：</label>
+				<label class="search_label" id="money">0元</label>
+			</div>
+		</div>
+	</form>
+</div>

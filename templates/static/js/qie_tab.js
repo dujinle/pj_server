@@ -160,6 +160,32 @@ function get_item(type){
 	});
 }
 
+function del_item(type,param){
+	var url = null;
+	if(type == 'player'){
+		url = '/admin/del_player_item'
+	}else if(type == 'gonghui'){
+		url = '/admin/del_gonghui_item'
+	}else if(type == 'gonghui_ans'){
+		url = '/admin/del_gonghui_ans_item'
+	}else if(type == 'fangka_order'){
+		url = '/admin/del_fangka_order_item'
+	}else if(type == 'xufangka'){
+		url = '/admin/del_xufangka_item'
+	}
+	var data = {};
+	data["ids"] = param;
+	$.ajax({
+		type: "POST",
+		url: url,
+		data: data,
+		dataType:'json',
+		success: function(data){
+			window.location.reload();
+		}
+	});
+}
+
 function add_item(type,cb){
 	var param = {};
 	var url = null;
