@@ -11,7 +11,7 @@ function modify_fangka(user_id){
 	} else{
 		$.ajax({
 			type: "POST",
-			url: "admin/get_player_by_id",
+			url: "/admin/get_player_by_id",
 			data:{'id':user_id},
 			dataType: "json",
 			success: function(data){
@@ -43,7 +43,7 @@ function modify_fangka(user_id){
 						ok:function(){
 							$.ajax({
 								type: "POST",
-								url: "admin/update_fangka",
+								url: "/admin/update_fangka",
 								data:content,
 								dataType: "json",
 								success: function(data){
@@ -67,6 +67,35 @@ function modify_fangka(user_id){
 					});
 					d.show();
 				}
+			}
+		});
+	}
+}
+
+function modify_gonggao(id){
+	var gonggao = document.getElementById("gonggao_content");
+	var content = gonggao.value;
+	if (content == ""){
+		alert("内容不能为空");
+	} else{
+		var data = {};
+		data["id"] = id;
+		data["content"] = content;
+		$.ajax({
+			type: "POST",
+			url: "/admin/update_gonggao",
+			data:data,
+			dataType: "json",
+			success: function(data){
+				console.log(data);
+				var tt = dialog({
+					content:data.msg,
+					icon:"succeed"
+				});
+				tt.show();
+				setTimeout(function () {
+					tt.close().remove();
+				}, 2000);
 			}
 		});
 	}

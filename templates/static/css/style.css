@@ -65,6 +65,7 @@ background: #fff; border: #e2e0dc 1px solid; margin: 10px 0; }
 .basic_l, .basic_r { float: left; height: 30px; line-height: 30px; }
 .basic_l { width: 100px; color: #3e5f7e; }
 .basic_r { width: 260px; }
+.basic_area {float: left; height: 80px; line-height: 10px;width: 260px;}
 /*详细信息结束*/
 /*图表开始*/
 .jqplot_title { height: 40px; line-height: 40px; font-size: 13px; font-weight: bold; margin-left: 50px; }

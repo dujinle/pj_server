@@ -41,11 +41,36 @@ function get_player_by_id(id){
 	});
 }
 
+function get_gonggao_by_id(id){
+	$.ajax({
+		type: "GET",
+		url: "/admin/get_gonggao_by_id?id="+id,
+		success: function(data){
+			var div = document.getElementById("content");
+			div.innerHTML = data;
+			console.log(data);
+		}
+	});
+}
+
 function get_gonghui(page){
 	set_current("gonghui");
 	$.ajax({
 		type: "GET",
 		url: "/admin/get_gonghui?page="+page,
+		success: function(data){
+			var div = document.getElementById("content");
+			div.innerHTML = data;
+			console.log(data);
+		}
+	});
+}
+
+function get_gonggao(page){
+	set_current("gonggao");
+	$.ajax({
+		type: "GET",
+		url: "/admin/get_gonggao?page="+page,
 		success: function(data){
 			var div = document.getElementById("content");
 			div.innerHTML = data;

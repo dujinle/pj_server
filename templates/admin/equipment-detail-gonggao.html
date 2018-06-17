@@ -1,0 +1,20 @@
+<!doctype html>
+{% load staticfiles %}
+<div class="right_ctn">
+	<div class="detail_box">
+		<ul class="detail_top">
+			<li>基本信息</li>
+		</ul>
+		<div class="detail_ctn">
+			<div class="detail_ctne p20">
+				<div class="clearfix"> <span class="basic_l">公告ID：</span> <span class="basic_r">{{gonggao.id}}</span></div>
+				<div class="clearfix"> <span class="basic_l">公告类型：</span> <span class="basic_r">{{gonggao.broadcast_type}}</span></div>
+				<div class="clearfix">
+					<span class="basic_l">公告内容：</span>
+					<textarea id="gonggao_content" class="basic_area" rows="3" cols="20">{{gonggao.broadcast_content}}</textarea>
+				</div>
+			<div class="clearfix" align="center"><input type="button" value="提 交" class="login_btn" onclick="modify_gonggao({{gonggao.id}});"></div>
+			</div>
+		</div>
+	</div>
+</div>

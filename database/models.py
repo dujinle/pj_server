@@ -106,4 +106,13 @@ class buy_fangka(models.Model):
 		verbose_name = "购买房卡记录";
 		ordering = ["id"]
 
+class game_broadcast(models.Model):
+	_id = models.IntegerField(primary_key=True,unique=True);
+	broadcast_type = models.IntegerField(verbose_name="类型");
+	broadcast_content = models.CharField(max_length=120,verbose_name="内容");
+
+	class Meta:
+		db_table = "game_broadcast";
+		verbose_name = "公告信息";
+		ordering = ["_id"]
 #creat model
