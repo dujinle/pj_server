@@ -225,6 +225,10 @@ function add_item(type,cb){
 		param["level"] = objs.selectedIndex;
 		param["creat_time"] = Date.now();
 		url = "/admin/add_gonghui_ans";
+	}else if(type == "gonggao"){
+		param["type"] = document.getElementById("gonggao_type").value;
+		param["content"] = document.getElementById("gonggao_content").value;
+		url = "/admin/add_gonggao";
 	}
 	$.ajax({
 		type: "POST",

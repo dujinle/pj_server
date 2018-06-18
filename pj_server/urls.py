@@ -42,5 +42,6 @@ urlpatterns = [
 	url(r'^admin/get_xufangka$', records_view.get_xufangka_page),
 	url(r'^admin/get_gonggao_by_id$', gonggao_view.get_gonggao_by_id),
 	url(r'^admin/update_gonggao$', gonggao_view.update_gonggao),
+	url(r'^admin/add_gonggao$', gonggao_view.add_gonggao),
 	url(r'^admin/get_gonggao$', gonggao_view.get_gonggao_page)
 ]

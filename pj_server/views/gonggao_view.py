@@ -60,3 +60,14 @@ def update_gonggao(request):
 	uobj.broadcast_content = content;
 	uobj.save()
 	return HttpResponse(json.dumps({'code':200,'msg':'修改成功'}))
+
+@csrf_exempt
+@login_required
+def add_gonggao(request):
+	gonggao_type = request.POST["type"]
+	gonggao_content = request.POST["content"]
+
+	gonggao = models.game_broadcast(broadcast_type=gonggao_type,
+		broadcast_content=gonggao_content)
+	gonggao.save();
+	return HttpResponse(json.dumps({'code':200,'msg':'添加成功'}))
