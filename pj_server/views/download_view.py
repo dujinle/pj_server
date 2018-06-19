@@ -12,6 +12,9 @@ def index(request):
 def aboutus(request):
 	return render(request, 'aboutus.html');
 
+def shoujiqipai(request):
+	return render(request, 'shoujiqipai.html');
+
 def open_app(request):
 	content = {};
 	room_num = request.GET.get('room_num');
