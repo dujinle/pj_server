@@ -19,6 +19,7 @@ from views import download_view,admin_view,player_view,gonghui_view,gonggao_view
 urlpatterns = [
 	url(r'^$', download_view.index),
 	url(r'^index$', download_view.index),
+	url(r'^aboutus$', download_view.aboutus),
 	url(r'^open_app$', download_view.open_app),
 	url(r'^open_app_dw$', download_view.open_app_dw),
 	url(r'^download_app$', download_view.download_app),

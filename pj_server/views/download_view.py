@@ -9,6 +9,9 @@ from wsgiref.util import FileWrapper
 def index(request):
 	return render(request, 'index.html');
 
+def aboutus(request):
+	return render(request, 'aboutus.html');
+
 def open_app(request):
 	content = {};
 	room_num = request.GET.get('room_num');
