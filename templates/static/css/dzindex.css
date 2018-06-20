@@ -3,10 +3,10 @@
 	background-size: cover
 }
 .index-owl-banner .item.item1 {
-	background: url(../images/index_owl_banner_01.jpg) center center no-repeat
+	background: url(../img/index_owl_banner_01.jpg) center center no-repeat
 }
 .index-owl-banner .item.item2 {
-	background: url(../images/index_owl_banner_02.jpg) center center no-repeat
+	background: url(../img/index_owl_banner_02.jpg) center center no-repeat
 }
 .index-owl-banner .item.item2 .container {
 	position: relative;
@@ -172,15 +172,15 @@
 	border-radius: 50%
 }
 .index-do .content .item1 .icon {
-	background: url(/images/do_03.png) center center no-repeat #ff6700;
+	background: url(../img/do_03.png) center center no-repeat #ff6700;
 	background-size: 80px
 }
 .index-do .content .item2 .icon {
-	background: url(/images/do_05.png) center center no-repeat #ff6700;
+	background: url(../img/do_05.png) center center no-repeat #ff6700;
 	background-size: 80px
 }
 .index-do .content .item3 .icon {
-	background: url(/images/do_07.png) center center no-repeat #ff6700;
+	background: url(../img/do_07.png) center center no-repeat #ff6700;
 	background-size: 80px
 }
 .index-do .content .item .h4 {

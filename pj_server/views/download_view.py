@@ -15,6 +15,12 @@ def aboutus(request):
 def shoujiqipai(request):
 	return render(request, 'shoujiqipai.html');
 
+def dingzhiqipai(request):
+	return render(request, 'dingzhiqipai.html');
+
+def contact(request):
+	return render(request, 'contact.html');
+
 def open_app(request):
 	content = {};
 	room_num = request.GET.get('room_num');
