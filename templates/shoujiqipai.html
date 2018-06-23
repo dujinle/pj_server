@@ -8,10 +8,31 @@
 <meta name="Description" content="肃宁鑫畅网络科技有限公司专业从事棋牌游戏定制开发,手机棋牌游戏定制开发的职业科技公司，力争成为国际知名棋牌开发,棋牌游戏开发公司，向业界提供优质棋牌游戏产品。" />
 <meta name="Keywords" content="专业棋牌游戏开发,棋牌游戏定制,棋牌游戏开发商,棋牌游戏程序,手机棋牌游戏开发,棋牌游戏源码,肃宁鑫畅网络科技有限公司" />
 <link href="{% static 'css/style2016.css' %}"rel="stylesheet" type="text/css">
-<link href="{% static 'css/dzglobal.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/dzglobal.css' %}"rel="stylesheet" type="text/css">
 <link href="{% static 'css/shouji.css' %}" rel="stylesheet" type="text/css">
 <script src="{% static 'js/jquery-1.10.2.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'js/jquery.kinMaxShow-1.1.min.js' %}" type="text/javascript" charset="utf-8"></script>
 
+<script type="text/javascript">
+$(function(){
+    $("#kinMaxShow").kinMaxShow({
+		//设置焦点图高度(单位:像素) 必须设置 否则使用默认值 500
+		height:280,
+		//设置焦点图 按钮效果
+		button:{
+			//设置焦点图切换方式为mouseover 鼠标经过按钮切换图片, 默认为 click， 可选 click[鼠标点击切换]或mouseover[鼠标滑过切换]
+			switchEvent:'mouseover',
+			//设置显示 索引数字  true 显示， 默认为 false 不显示
+			showIndex:false,
+			//按钮常规下 样式设置 ，css写法，类似jQuery的 $('xxx').css({key:value,……})中css写法。
+			//【友情提示：可以设置透明度哦 不用区分浏览器 统一为 opacity，CSS3属性也支持哦 如：设置按钮圆角、投影等，只不过IE8及以下不支持】
+			normal:{background:'url(/static/img/button.png) no-repeat -14px 0',marginRight:'8px',border:'0',right:'46%',bottom:'20px'},
+			//当前焦点图按钮样式 设置，写法同上
+			focus:{background:'url(/static/img/button.png) no-repeat 0 0',border:'0'}
+		}
+	});
+});
+</script>
 </head>
 <body>
 <header>
@@ -25,7 +46,10 @@
 	</section>
 </header>
 <!--banner-->
-<section class="sjbanner"></section>
+<div id="kinMaxShow">
+	<div> <a><img src="{% static 'img/sjbanner.jpg' %}"></a> </div>
+</div>
+<!--section class="sjbanner"></section-->
 <div class="main">
 	<div class="ui-mobile-listbox">
 		<h2>汇集多款热门游戏</h2>
