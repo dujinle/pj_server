@@ -1,5 +1,5 @@
 use paijiu_data if exists paijiu_data
-drop table mana_user;
+#drop table mana_user;
 CREATE TABLE mana_user(
 	id INT PRIMARY KEY AUTO_INCREMENT,\
 	username VARCHAR(32),\

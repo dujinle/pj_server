@@ -6,6 +6,7 @@ function get_uuid(){
 
 function modify_fangka(user_id){
 	var fangka_num = document.getElementById("fangka_num").value;
+	var gold = document.getElementById("gold").value;
 	if (fangka_num == ""){
 		alert("房卡数据无效");
 	} else{
@@ -23,17 +24,21 @@ function modify_fangka(user_id){
 					content["order_id"] = get_uuid();
 					content["player_id"] = player.id;
 					content["fangka_num"] = fangka_num - player.fangka_num;
+					content["gold"] = gold - player.gold;
+					content["gold_danjia"] = 1;
 					content["danjia"] = 2;
-					content["zongjia"] = 2 * content["fangka_num"];
+					content["zongjia"] = 2 * content["fangka_num"] + content["gold"];
 					content["creat_time"] = Date.now();
 					document.getElementById("pop_order_id").innerHTML = content["order_id"];
 					document.getElementById("pop_player_id").innerHTML = content["player_id"];
 					document.getElementById("pop_fangka_num").innerHTML = content["fangka_num"];
+					document.getElementById("pop_gold").innerHTML = content["gold"];
+					document.getElementById("pop_gold_danjia").innerHTML = 1;
 					document.getElementById("pop_danjia").innerHTML = content["danjia"];
 					document.getElementById("pop_zongjia").innerHTML = content["zongjia"];
 					if(gonghui != null){
 						content["danjia"] = gonghui.danjia;
-						content["zongjia"] = content["danjia"] * content["fangka_num"];
+						content["zongjia"] = content["danjia"] * content["fangka_num"] + content["gold"];
 						document.getElementById("pop_danjia").innerHTML = content["danjia"];
 						document.getElementById("pop_zongjia").innerHTML = content["zongjia"];
 					}

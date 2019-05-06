@@ -12,18 +12,24 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 @login_required
 def update_fangka(request):
+	print(request.POST)
 	fangka_num = int(request.POST['fangka_num']);
+	gold = int(request.POST['gold']);
+	gold_danjia = float(request.POST['gold_danjia']);
 	user_id = request.POST['player_id'];
 	uobj =  models.player.objects.get(id=user_id)
 
 	print uobj.fangka_num
 	uobj.fangka_num = uobj.fangka_num + fangka_num;
+	uobj.gold = uobj.gold + gold;
 	uobj.fangka_history = uobj.fangka_history + fangka_num;
 	uobj.save()
 
 	buyfangka = models.buy_fangka(order_id=request.POST["order_id"],
 			player_id = user_id,
 			fangka_num=fangka_num,
+			gold=gold,
+			gold_danjia=gold_danjia,
 			creat_time=request.POST["creat_time"],
 			pay_time=request.POST["creat_time"],
 			danjia=request.POST["danjia"],
@@ -104,6 +110,7 @@ def get_player_by_id(request):
 		content["user"] = {};
 		content["user"]['id'] = user.id;
 		content["user"]['fangka_num'] = user.fangka_num;
+		content["user"]['gold'] = user.gold;
 		if not user.gonghui_id is None:
 			gonghui = models.gonghui.objects.get(gonghui_id=user.gonghui_id)
 			content["gonghui"] = {}

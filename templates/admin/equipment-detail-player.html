@@ -13,6 +13,7 @@
 				<div class="clearfix"> <span class="basic_l">微信头像：</span> <span class="basic_r">{{user.head_img_url}}</span></div>
 				<div class="clearfix"> <span class="basic_l">性别：</span> <span class="basic_r">{{user.sex}}</span></div>
 				<div class="clearfix"> <span class="basic_l">房卡数量：</span> <input id="fangka_num" class="basic_r" value={{user.fangka_num}}></div>
+				<div class="clearfix"> <span class="basic_l">金币数量：</span> <input id="gold" class="basic_r" value={{user.gold}}></div>
 				<div class="clearfix"> <span class="basic_l">电话：</span> <span class="basic_r">{{user.phone_num}}</span></div>
 				<div class="clearfix"> <span class="basic_l">游戏场数：</span> <span class="basic_r">{{user.round_num}}</span></div>
 				<div class="clearfix"> <span class="basic_l">游戏总分数：</span> <span class="basic_r">{{user.all_score}}</span></div>
@@ -52,6 +53,16 @@
 			<div class="pop_w1 ml10">
 				<label class="search_label"><span class="red">*</span>单 价：</label>
 				<label class="search_label" id="pop_danjia"></label>
+			</div>
+		</div>
+		<div class="clearfix mt10">
+			<div class="pop_w1">
+				<label class="search_label"><span class="red">*</span>金币数量：</label>
+				<label class="search_label" id="pop_gold"></label>
+			</div>
+			<div class="pop_w1 ml10">
+				<label class="search_label"><span class="red">*</span>单 价：</label>
+				<label class="search_label" id="pop_gold_danjia"></label>
 			</div>
 		</div>
 		<div class="clearfix mt10">

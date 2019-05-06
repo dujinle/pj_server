@@ -12,6 +12,7 @@ class player(models.Model):
 	nick_name = models.CharField(max_length=64,verbose_name="微信名称");
 	head_img_url = models.CharField(max_length=256);
 	sex = models.IntegerField();
+	gold = models.IntegerField(verbose_name="金币数量");
 	fangka_num = models.IntegerField(verbose_name="房卡数量");
 	round_num = models.IntegerField(verbose_name="游戏局数");
 	all_score = models.IntegerField(verbose_name="游戏得分");
@@ -95,10 +96,12 @@ class buy_fangka(models.Model):
 	order_id = models.CharField(max_length=32,verbose_name="订单号");
 	player_id = models.IntegerField(verbose_name="用户ID");
 	fangka_num = models.IntegerField(verbose_name="购买数量");
+	gold = models.IntegerField(verbose_name="金币数量");
 	status = models.IntegerField(verbose_name = "状态");
 	creat_time = models.BigIntegerField(verbose_name="创建时间");
 	pay_time = models.BigIntegerField(verbose_name="付费时间");
 	danjia = models.FloatField(verbose_name="单价");
+	gold_danjia = models.FloatField(verbose_name="金币单价");
 	zongjia = models.FloatField(verbose_name="总价");
 
 	class Meta:
